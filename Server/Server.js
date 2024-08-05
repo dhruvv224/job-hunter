@@ -15,5 +15,6 @@ app.listen(PORT,()=>{
         console.log(`there is an error in server ${error}`)   
     }
 })
+
 // api end points
 app.use('/auth/user',require('./Routes/UserRoute.js'))
