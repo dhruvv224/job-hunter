@@ -24,7 +24,7 @@ const UserSchema= new mongoose.Schema({
     Role:{
         type:String,
         required:true,
-        enum:['Aplicant','Recruiter']
+        enum:['Applicant','Recruiter']
     },
     Profile:{
         bio:{type:String},

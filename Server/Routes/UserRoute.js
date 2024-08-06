@@ -6,6 +6,8 @@ app.use(express.json())
 const router=express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();  // Load environment variables
+
 // display data
 router.get('/',async(req,res)=>{
     try {
@@ -28,34 +30,43 @@ const storage=multer.diskStorage({
     }
 })
 // register user
-router.post('/register',async(req,res)=>{
+router.post('/register', async (req, res) => {
     try {
-        const{Fullname,Email,Phonenumber,Password,Role}=req.body;
-        if(!Fullname || !Email || !Phonenumber || !Password || !Role )
-        {
-            res.status(400).json({message:"something went wrong"})
-        }
-        const UserEmail=await UserModel.findOne({Email})
-        if(UserEmail)
-        {
-            res.status(400).json({message:'user already exists'})
-        }
-const hashedPass=await bcrypt.hash(Password,10)
- const newUser=new UserModel({
-    Fullname,
-    Email,
-    Phonenumber,
-    password:hashedPass,
-    Role
- })
-        
+      const { Fullname, Email, Phonenumber, Password, Role } = req.body;
+      
+      // Check if all fields are provided
+      if (!Fullname || !Email || !Phonenumber || !Password || !Role) {
+        return res.status(400).json({ message: "All fields are required" });
+      }
+      
+      // Check if the user already exists
+      const UserEmail = await UserModel.findOne({ Email });
+      if (UserEmail) {
+        return res.status(400).json({ message: 'User already exists' });
+      }
+      
+      // Hash the password
+      const hashedPass = await bcrypt.hash(Password, 10);
+      
+      // Create a new user
+      const newUser = new UserModel({
+        Fullname,
+        Email,
+        Phonenumber,
+        Password: hashedPass,
+        Role
+      });
+      
+      // Save the new user to the database
+      await newUser.save();
+      
+      // Respond with success message
+      res.status(200).json({ message: 'User created successfully', newUser });
     } catch (error) {
-        console.log(`error ${error}`)
-        res.status(400).json({message:'error server error'})
+      console.error(`Error: ${error}`);
+      res.status(500).json({ message: 'Server error' });
     }
-
-
-})
+  });
 // login api
 
 
@@ -105,8 +116,9 @@ router.put('/updateProfile/:id',async(req,res)=>{
     
     try {
         const id=req.params.id
+        console.log(id)
         const{Fullname,Email,Phonenumber,bio,skills}=req.body
-        const skillsArray=skills.split(",")
+        // const skillsArray=skills.split(",")
         const User=UserModel.findById({id});
         if(!User)
         {
