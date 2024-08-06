@@ -6,7 +6,7 @@ const app=express()
 router.get('/DisplayCompany',async(req,res)=>{
     try {
         const company=await Company.find()
-        res.status(200).json({message:'Company founded'},company)
+        res.status(200).json({message:'Company founded',company})
         
     } catch (error) {
         console.log("error",error)
@@ -29,8 +29,9 @@ router.post('/CreateCompany',async(req,res)=>{
             logo
         })
         await NewCompany.save()
-        
+        res.status(200).json({message:"Company Posted successfully",NewCompany})
     } catch (error) {
+        res.status(400).json({message:"error cant post Create company"})
         
     }
 })
