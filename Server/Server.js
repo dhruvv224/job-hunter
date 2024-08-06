@@ -16,4 +16,4 @@ app.listen(PORT,()=>{
     }
 })
 // api end points
-app.use('/auth/user',require('./Routes/UserRoute.js'))
+app.use('/api/auth/user',require('./Routes/UserRoute.js'))

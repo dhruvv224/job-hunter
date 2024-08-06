@@ -4,7 +4,6 @@ const express =require('express');
 const app=express()
 app.use(express.json())
 const router=express.Router();
-const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 // display data
@@ -32,7 +31,7 @@ const storage=multer.diskStorage({
 router.post('/register',async(req,res)=>{
     try {
         const{Fullname,Email,Phonenumber,Password,Role}=req.body;
-        if(!Fullname || !Email || !Phonenumber || !Role )
+        if(!Fullname || !Email || !Phonenumber || !Password || !Role )
         {
             res.status(400).json({message:"something went wrong"})
         }
