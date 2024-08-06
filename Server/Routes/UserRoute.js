@@ -91,6 +91,16 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Login failed!', error: error.message });
   }
 });
-
+router.post('/logout',async(req,res)=>{
+    try {
+        res.status(200).cookie('token',"",{maxAge:0}).json({
+            message:'login successfully done'
+        })
+        
+    } catch (error) {
+        
+        console.log(`there is something wrong ${error}`)
+    }
+})
 
 module.exports=router
