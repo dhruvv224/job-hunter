@@ -31,6 +31,7 @@ router.post('/CreateCompany',async(req,res)=>{
         await NewCompany.save()
         res.status(200).json({message:"Company Posted successfully",NewCompany})
     } catch (error) {
+        console.log(error)
         res.status(400).json({message:"error cant post Create company"})
         
     }
