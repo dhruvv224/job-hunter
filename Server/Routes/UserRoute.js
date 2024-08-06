@@ -121,7 +121,7 @@ router.post('/updateProfile/:id', async (req, res) => {
       let SkillsArray
       if(skills)
       {
-         skillsArray = skills.split(",");
+         SkillsArray = skills.split(",");
 
       }
   
@@ -139,7 +139,7 @@ router.post('/updateProfile/:id', async (req, res) => {
       User.Email = Email;
       User.Phonenumber = Phonenumber;
       User.Profile.bio = bio;
-      User.Profile.skills = skillsArray;
+      User.Profile.skills = SkillsArray;
   
       // Save the updated user data
       await User.save();
