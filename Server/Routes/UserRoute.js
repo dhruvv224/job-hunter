@@ -112,42 +112,52 @@ router.post('/logout',async(req,res)=>{
         console.log(`there is something wrong ${error}`)
     }
 })
-router.post('/updateProfile/:id',async(req,res)=>{
-    
+router.post('/updateProfile/:id', async (req, res) => {
     try {
-        const id=req.params.id
-        console.log(id)
-        // const{Fullname,Email,Phonenumber,bio,skills}=req.body
-        // const skillsArray=skills.split(",")
-        const User=UserModel.findById({id});
-        if(!User)
-        {
-            res.status(400).json({message:'user not found'})
-        }
-        console.log(User)
-        // // updating the data
-        // User.Fullname=Fullname;
-        // User.Email=Email;
-        // User.Phonenumber=Phonenumber;
-        // User.Profile.bio=bio;
-        // User.Profile.skills=skills
-//  save the data
-// await User.save();
-// User={
-//     _id:User._id,
-//     Fullname:User.Fullname,
-//     Email:User.Email,
-//     Phonenumber:User.Phonenumber,
-//     Role:User.Role,
-//     Profile:User.Profile
+      const id = req.params.id;
+      console.log(id);
+  
+      const { Fullname, Email, Phonenumber, bio, skills } = req.body;
+      let SkillsArray
+      if(skills)
+      {
+         skillsArray = skills.split(",");
 
-
-// }
-res.status(200).json({message:'user updated successfully'},User)
-
+      }
+  
+      // Find the user by ID
+      const User = await UserModel.findById(id);
+      
+      if (!User) {
+        return res.status(400).json({ message: 'User not found' });
+      }
+      
+      console.log(User);
+  
+      // Update the user's information
+      User.Fullname = Fullname;
+      User.Email = Email;
+      User.Phonenumber = Phonenumber;
+      User.Profile.bio = bio;
+      User.Profile.skills = skillsArray;
+  
+      // Save the updated user data
+      await User.save();
+  
+      const updatedUser = {
+        _id: User._id,
+        Fullname: User.Fullname,
+        Email: User.Email,
+        Phonenumber: User.Phonenumber,
+        Role: User.Role,
+        Profile: User.Profile
+      };
+  
+      res.status(200).json({ message: 'User updated successfully', user: updatedUser });
+  
     } catch (error) {
-        console.log("error",error)
-        res.status(400).json({message:'error while updation your profile'})
+      console.log("Error", error);
+      res.status(500).json({ message: 'Error while updating your profile', error: error.message });
     }
-})
+  });
 module.exports=router
