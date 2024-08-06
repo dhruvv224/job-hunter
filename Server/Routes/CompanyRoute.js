@@ -5,8 +5,8 @@ const app=express()
 // get Company details
 router.get('/DisplayCompany',async(req,res)=>{
     try {
-        const Company=await Company.find()
-        res.status(200).json({message:'Company founded'})
+        const company=await Company.find()
+        res.status(200).json({message:'Company founded'},company)
         
     } catch (error) {
         console.log("error",error)
