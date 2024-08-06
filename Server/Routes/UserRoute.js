@@ -102,5 +102,40 @@ router.post('/logout',async(req,res)=>{
         console.log(`there is something wrong ${error}`)
     }
 })
+router.put('/updateProfile/:id',async(req,res)=>{
+    
+    try {
+        const id=req.params.id
+        const{Fullname,Email,Phonenumber,bio,skills}=req.body
+        const skillsArray=skills.split(",")
+        const User=UserModel.findById({id});
+        if(!User)
+        {
+            res.status(400).json({message:'user not found'})
+        }
+        // updating the data
+        User.Fullname=Fullname;
+        User.Email=Email;
+        User.Phonenumber=Phonenumber;
+        User.Profile.bio=bio;
+        User.Profile.skills=skills
+//  save the data
+await User.save();
+User={
+    _id:User._id,
+    Fullname:User.Fullname,
+    Email:User.Email,
+    Phonenumber:User.Phonenumber,
+    Role:User.Role,
+    Profile:User.Profile
 
+
+}
+res.status(200).json({message:'user updated successfully',User})
+
+    } catch (error) {
+        console.log("error",error)
+        res.status(400).json({message:'error while updation your profile'})
+    }
+})
 module.exports=router
