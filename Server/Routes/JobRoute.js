@@ -3,6 +3,8 @@ const router=express.Router()
 const app=express();
 const Jobs=require('../Models/JobModel.js')
 // get company
+app.use(express.json())
+
 
 router.get('/getCompany',async(req,res)=>{
     try {
@@ -33,3 +35,5 @@ router.post('/postJob',async(req,res)=>{
         res.status(400).json({message:"error occurs"})
     }
 })
+
+module.exports=router
