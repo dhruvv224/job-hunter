@@ -36,4 +36,20 @@ router.post('/CreateCompany',async(req,res)=>{
         
     }
 })
+router.post('/updateCompany/:id',async(req,res)=>{
+    try {
+        const id=req.params.id
+        const company=await Company.findById(id)
+        if(!company)
+        {
+            req.status(400).json({message:"Company not found"})
+        }
+        res.status(200).json({message:"Company found",company})
+        
+    } catch (error) {
+        console.log("error",error)
+        res.status(400).json({message:"cant update company",error})
+        
+    }
+})
 module.exports=router
