@@ -61,6 +61,7 @@ router.post('/updateCompany/:id',async(req,res)=>{
 router.get('/findbyid/:id',async(req,res)=>{
     try {
         const id=req.params.id
+        
         const company=await Company.findById(id)
         if(!company)
         {
