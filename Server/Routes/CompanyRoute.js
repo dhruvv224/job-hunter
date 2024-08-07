@@ -38,14 +38,19 @@ router.post('/CreateCompany',async(req,res)=>{
 })
 router.post('/updateCompany/:id',async(req,res)=>{
     try {
+        const{name,location,website,logo}=req.body;
+        const file=req.file
         const id=req.params.id
+
         const company=await Company.findById(id)
         if(!company)
         {
             req.status(400).json({message:"Company not found"})
         }
         res.status(200).json({message:"Company found",company})
-        
+        const newData={name,location,website,logo}
+        const updatedCompany=await Company.findByIdAndUpdate(id,newData,{new:'true'})
+        res.status(200).json({message:"updated",updatedCompany})
     } catch (error) {
         console.log("error",error)
         res.status(400).json({message:"cant update company",error})
