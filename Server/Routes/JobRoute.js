@@ -42,7 +42,18 @@ router.post('/postJob',async(req,res)=>{
         res.status(400).json({message:"error occurs"})
     }
 })
-router.get('/getByadminId',(req,res)=>{
-    
+router.get('/getByadminId',async(req,res)=>{
+    try {
+        const adminId=req.params.id;
+        const Jobsbyid=await Jobs.findById(adminId)
+        if(!Jobsbyid)
+        {
+            res.status(400).json({message:"cant find jobs"})
+        }
+        res.status(200).json({message:"company founded",Jobsbyid})
+        
+    } catch (error) {
+        
+    }
 })
 module.exports=router
