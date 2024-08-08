@@ -4,8 +4,6 @@ const app=express();
 const Jobs=require('../Models/JobModel.js')
 // get company
 app.use(express.json())
-
-
 router.get('/getCompany',async(req,res)=>{
     try {
         const jobs=await Jobs.find()
@@ -53,6 +51,11 @@ router.get('/getByadminId',async(req,res)=>{
         res.status(200).json({message:"company founded",Jobsbyid})
         
     } catch (error) {
+        console.log(error)
+        res.status(400).json({
+            message:"company not found ",
+            error
+        })
         
     }
 })
