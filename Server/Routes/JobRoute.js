@@ -15,6 +15,8 @@ router.get('/getCompany',async(req,res)=>{
 
         
     } catch (error) {
+        console.log(error)
+        res.status(400).json({message:"not found thre is somethin wrong",error})
         
     }
 
@@ -40,5 +42,7 @@ router.post('/postJob',async(req,res)=>{
         res.status(400).json({message:"error occurs"})
     }
 })
-
+router.get('/getByadminId',(req,res)=>{
+    
+})
 module.exports=router
