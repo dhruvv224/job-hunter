@@ -8,6 +8,11 @@ app.use(express.json())
 
 router.get('/getCompany',async(req,res)=>{
     try {
+        const jobs=await Jobs.find()
+        res.status(200).json({
+            message:"jobs founded",jobs
+        })
+
         
     } catch (error) {
         
