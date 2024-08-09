@@ -2,7 +2,7 @@ import React from 'react'
 
 const SignUpForm = () => {
   return (
-    <div>SignUpForm</div>
+    <div className='flex items-center justify-center'></div>
   )
 }
 
