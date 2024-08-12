@@ -6,6 +6,13 @@ export  const Login = () => {
     const togglePassword=()=>{
         setPassword(!password)
     }
+    const [LoginData,setLoginData]=useState({
+        email:"",
+        password:""
+    })
+    const[email,setEmail]=useState('')
+    
+
   return (
     <>
     <div className='flex items-center justify-center max-w-7xl mx-auto'>
@@ -13,12 +20,12 @@ export  const Login = () => {
 <h1 className='text-xl font-semibold mb-2'>Login</h1>
 <div className='my-2'>
                 <label className='block mb-2 font-medium'>Email</label>
-                <input type='text' placeholder='Enter Email' className='p-2 rounded-md border border-gray-200 w-full focus:outline-none focus:border-red-300 duration-150 text-gray-700'/>
+                <input type='text' placeholder='Enter Email' className='p-2 rounded-md border border-gray-200 w-full focus:outline-none focus:border-red-300 duration-150 text-gray-700' value={email} onChange={handleChangeEmail}/>
 
             </div>
             <div className='my-2 relative'>
                 <label className='block mb-2 font-medium'>Password</label>
-                <input type={password?'text':'password'} placeholder='Enter Email' className='p-2 rounded-md border border-gray-200 w-full focus:outline-none focus:border-red-300 duration-150 text-gray-700'/>
+                <input type={password?'text':'password'} placeholder='Enter Email' className='p-2 rounded-md border border-gray-200 w-full focus:outline-none focus:border-red-300 duration-150 text-gray-700' value={password} onChange={handlechangePass}/>
                 <button type='button' className='absolute top-1/2 right-2 bottom-2' onClick={togglePassword}>
                     {
                         password?
