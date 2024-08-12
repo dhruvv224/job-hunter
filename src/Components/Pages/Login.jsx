@@ -8,10 +8,19 @@ export  const Login = () => {
     }
     const [LoginData,setLoginData]=useState({
         email:"",
-        password:""
+        password:"",
+        role:""
     })
     const[email,setEmail]=useState('')
-    
+    const handleFieldchange=(event,name)=>{
+        const value=event.target.value
+        setLoginData({
+            ...LoginData,[name]:value
+        })
+
+
+    }
+    console.log(LoginData)
 
   return (
     <>
@@ -20,12 +29,12 @@ export  const Login = () => {
 <h1 className='text-xl font-semibold mb-2'>Login</h1>
 <div className='my-2'>
                 <label className='block mb-2 font-medium'>Email</label>
-                <input type='text' placeholder='Enter Email' className='p-2 rounded-md border border-gray-200 w-full focus:outline-none focus:border-red-300 duration-150 text-gray-700' value={email} onChange={handleChangeEmail}/>
+                <input type='text' placeholder='Enter Email' name='email' className='p-2 rounded-md border border-gray-200 w-full focus:outline-none focus:border-red-300 duration-150 text-gray-700' value={LoginData.email} onChange={handleFieldchange}/>
 
             </div>
             <div className='my-2 relative'>
                 <label className='block mb-2 font-medium'>Password</label>
-                <input type={password?'text':'password'} placeholder='Enter Email' className='p-2 rounded-md border border-gray-200 w-full focus:outline-none focus:border-red-300 duration-150 text-gray-700' value={password} onChange={handlechangePass}/>
+                <input type={password?'text':'password'} placeholder='Enter password' name='password' className='p-2 rounded-md border border-gray-200 w-full focus:outline-none focus:border-red-300 duration-150 text-gray-700' value={LoginData.password} onChange={handleFieldchange}/>
                 <button type='button' className='absolute top-1/2 right-2 bottom-2' onClick={togglePassword}>
                     {
                         password?
