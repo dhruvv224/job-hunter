@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IoIosEye,IoIosEyeOff } from "react-icons/io";
-
+import { Link } from 'react-router-dom';
 const SignUpForm = () => {
   const [password,setPassword]=useState(false)
   const togglePassword=()=>{
@@ -90,6 +90,9 @@ const SignUpForm = () => {
         >
           Sign Up
         </button>
+        <div className='my-2'>
+            <p className='text-l font-medium'>Already have an account <Link to={'/login'} className='text-[#3e1785]'>Login</Link></p>
+        </div>
       </form>
     </div>
   );
