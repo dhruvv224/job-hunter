@@ -7,8 +7,9 @@ const SignUpForm = () => {
             <h1 className='font-semibold text-xl'>Sign Up</h1>
             <div className='my-2'>
                 Full Name
-                <input type='text' className='input' placeholder='Enter your full name'/>
-
+            <div>
+              <input type='text' className='border border-gray-200 rounded-md'/> 
+            </div>                
             </div>
         </form>
     </div>
