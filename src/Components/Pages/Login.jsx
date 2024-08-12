@@ -12,8 +12,8 @@ export  const Login = () => {
         role:""
     })
     const[email,setEmail]=useState('')
-    const handleFieldchange=(event,name)=>{
-        const value=event.target.value
+    const handleFieldchange=(event)=>{
+        const {value,name}=event.target
         setLoginData({
             ...LoginData,[name]:value
         })
@@ -47,10 +47,10 @@ export  const Login = () => {
             <div className='my-2'>
             <label className='block font-medium mb-2'>Role</label>
           <div className='flex items-center'>
-            <input type='radio' id='applicant' name='role' className='mr-2' />
+            <input type='radio' id='applicant' name='role' className='mr-2' value='Applicant'  onChange={handleFieldchange}/>
             <label htmlFor='applicant' className='mr-6'>Applicant</label>
 
-            <input type='radio' id='recruiter' name='role' className='mr-2' />
+            <input type='radio' id='recruiter' name='role' className='mr-2' value='Recruiter' onChange={handleFieldchange} />
             <label htmlFor='recruiter'>Recruiter</label>
           </div>
 
