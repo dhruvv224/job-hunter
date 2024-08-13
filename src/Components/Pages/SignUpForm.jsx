@@ -93,7 +93,7 @@ const SignUpForm = () => {
         >
           Sign Up
         </button>
-        <div className='my-2'>
+        <div className='my-'>
             <p className='text-l font-medium'>Already have an account <Link to={'/login'} className='text-[#3e1785]'>Login</Link></p>
         </div>
       </form>
