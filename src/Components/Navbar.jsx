@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -20,6 +21,8 @@ const Navbar = () => {
         <div className='hidden md:flex items-center gap-4'>
           <button className='bg-white-600 text-black border-gray-200 border-[1px] font-semibold px-4 py-2 rounded-md transition-colors duration-300'>
             Login
+            <Link to='/login'>
+            </Link>
           </button>
           <button className=' bg-[#6A38C2]  text-white font-semibold px-4 py-2 rounded-md hover:bg-[#5f2db4] hover:text-white transition-colors duration-300'>
             Sign Up
