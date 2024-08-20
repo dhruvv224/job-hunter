@@ -15,11 +15,18 @@ const SignUpForm = () => {
     email:'',
     phonenumber:'',
     password:'',
-    re_password:''
+    re_password:'',
     role:''
 
 
   })
+  const handleFieldChange=(event)=>{
+    const{name,value}=event.target
+    setSignupdata({...signupData,[name]:value})
+
+  }
+  console.log(signupData)
+
   return (
     <div className='flex items-center justify-center max-w-7xl mx-auto'>
       <form action='' className='w-1/2 border border-gray-200 rounded-md p-6 my-10'>
@@ -31,6 +38,9 @@ const SignUpForm = () => {
             type='text' 
             className='border border-gray-300 rounded-md w-full p-2 focus:outline-none focus:border-red-400 duration-150 text-gray-700' 
             placeholder='Enter full name'
+            name='fullname'
+            value={signupData.fullname}
+            onChange={handleFieldChange}
           />
         </div>
         
@@ -38,6 +48,9 @@ const SignUpForm = () => {
           <label className='block mb-2 font-medium'>Email</label>
           <input 
             type='email' 
+            name='email'
+            onChange={handleFieldChange}
+            value={signupData.email}
             className='border border-gray-300 rounded-md w-full p-2 focus:outline-none focus:border-red-400 duration-150 text-gray-700' 
             placeholder='Enter email'
           />
@@ -46,6 +59,9 @@ const SignUpForm = () => {
         <div className='my-4'>
           <label className='block mb-2 font-medium'>Phone Number</label>
           <input 
+          name='phonenumber'
+          value={signupData.phonenumber}
+          onChange={handleFieldChange}
             type='tel' 
             className='border border-gray-300 rounded-md w-full p-2 focus:outline-none focus:border-red-400 duration-150 text-gray-700' 
             placeholder='Enter phone number'
@@ -55,6 +71,9 @@ const SignUpForm = () => {
         <div className='my-4 relative'>
           <label className='block mb-2 font-medium'>Enter Password</label>
           <input 
+          value={signupData.password}
+          onChange={handleFieldChange}
+          name='password'
             type={password ?'text':'password'} 
             className='border border-gray-300 rounded-md w-full p-2 focus:outline-none focus:border-red-400 duration-150 text-gray-700' 
             placeholder='Enter password'
@@ -70,6 +89,9 @@ const SignUpForm = () => {
         <div className='my-4 relative'>
           <label className='block mb-2 font-medium'>Re-enter Password</label>
           <input 
+          name='re_password'
+          value={signupData.re_password}
+          onChange={handleFieldChange}
             type={confirmPass ?'text':'password'}  
             className='border border-gray-300 rounded-md w-full p-2 focus:outline-none focus:border-red-400 duration-150 text-gray-700' 
             placeholder='Re-enter password'
@@ -86,10 +108,10 @@ const SignUpForm = () => {
         <div className='my-4'>
           <label className='block font-medium mb-2'>Role</label>
           <div className='flex items-center'>
-            <input type='radio' id='applicant' name='role' className='mr-2' />
+            <input type='radio' id='applicant' name='role' className='mr-2' onChange={handleFieldChange} value={signupData.role}  />
             <label htmlFor='applicant' className='mr-6'>Applicant</label>
 
-            <input type='radio' id='recruiter' name='role' className='mr-2' />
+            <input type='radio' id='recruiter' name='role' className='mr-2' onChange={handleFieldChange} value={signupData.role}/>
             <label htmlFor='recruiter'>Recruiter</label>
           </div>
         </div>
