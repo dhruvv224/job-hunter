@@ -11,7 +11,14 @@ const SignUpForm = () => {
     setConfirmpass(!confirmPass)
   }
   const [signupData,setSignupdata]=useState({
-    
+    fullname:'',
+    email:'',
+    phonenumber:'',
+    password:'',
+    re_password:''
+    role:''
+
+
   })
   return (
     <div className='flex items-center justify-center max-w-7xl mx-auto'>
