@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { GoSearch } from "react-icons/go";
 
 const Herosection = () => {
+    const [searchQuery,setSearchQuery]=useState('')
+    const handleSearchquery=(event)=>{
+        const value=event.target.value
+        setSearchQuery(value)
+
+    }
+    
   return (
     <div className='text-center'>
         <h2 className='font-semibold px-4 py-2 rounded-full  bg-gray-100 text-[#f83002]'>No 1 ! job site</h2>
@@ -12,6 +19,8 @@ const Herosection = () => {
     type="text" 
     placeholder="Find your dream job" 
     className="border-none outline-none w-full rounded-l-full p-4 h-full"
+    value={searchQuery}
+    onChange={handleSearchquery}
   />
   <button className="bg-[#6A38C2] p-4 rounded-r-full h-full flex items-center justify-center">
     <GoSearch className="h-5 w-5 text-white" />
