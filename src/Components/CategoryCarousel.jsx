@@ -9,7 +9,7 @@ const CategoryCarousel = () => {
         "Graphic designer",
         "software engineer",
         "AI/ML Developer
-        "Python Developer"
+        "Python Developer
     ]
   return (
     <div>
