@@ -20,13 +20,32 @@ const SignUpForm = () => {
 
 
   })
+  const [emailError,setEmailError]=useState('');
+  const email=signupData.email
+  const checkEmail=(email)=>{
+    const emailPattern=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    return emailPattern.test(email)
+
+
+  }
   const handleFieldChange=(event)=>{
     const{name,value}=event.target
     setSignupdata({...signupData,[name]:value})
 
   }
   console.log(signupData)
+const handlesubmit=(e)=>{
+  e.prventDefault()
+  if(checkEmail)
+  {
+    alert("done")
+  }
+  else
+  {
+    alert("error")
+  }
 
+}
   return (
     <div className='flex items-center justify-center max-w-7xl mx-auto'>
       <form action='' className='w-1/2 border border-gray-200 rounded-md p-6 my-10'>
@@ -119,8 +138,10 @@ const SignUpForm = () => {
         <button 
           type='button' 
           className='bg-[#5120a7] text-white p-3 rounded-lg w-full hover:bg-[#3e1785] transition-colors duration-150'
+          onClick={handlesubmit}
         >
           Sign Up
+
         </button>
         <div className='my-2'>
             <p className='text-l font-medium'>Already have an account <Link to={'/login'} className='text-[#3e1785]'>Login</Link></p>
