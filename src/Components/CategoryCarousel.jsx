@@ -8,7 +8,7 @@ const CategoryCarousel = () => {
         "Frontend designer",
         "Graphic designer",
         "software engineer",
-        "AI/ML Developer"
+        "AI/ML Developer
         "Python Developer"
     ]
   return (
