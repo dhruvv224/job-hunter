@@ -35,8 +35,7 @@ const SignUpForm = () => {
   }
   console.log(signupData)
 const handlesubmit=(e)=>{
-  e.prventDefault()
-  if(checkEmail)
+  if(checkEmail(signupData.email))
   {
     alert("done")
   }
@@ -44,6 +43,7 @@ const handlesubmit=(e)=>{
   {
     alert("error")
   }
+  console.log(checkEmail)
 
 }
   return (
@@ -127,10 +127,10 @@ const handlesubmit=(e)=>{
         <div className='my-4'>
           <label className='block font-medium mb-2'>Role</label>
           <div className='flex items-center'>
-            <input type='radio' id='applicant' name='role' className='mr-2' onChange={handleFieldChange} value={signupData.role}  />
+            <input type='radio' id='applicant' name='role' className='mr-2' onChange={handleFieldChange} value='Applicant'  />
             <label htmlFor='applicant' className='mr-6'>Applicant</label>
 
-            <input type='radio' id='recruiter' name='role' className='mr-2' onChange={handleFieldChange} value={signupData.role}/>
+            <input type='radio' id='recruiter' name='role' className='mr-2' onChange={handleFieldChange} value='Recruiter'/>
             <label htmlFor='recruiter'>Recruiter</label>
           </div>
         </div>
