@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { IoIosEye,IoIosEyeOff } from 'react-icons/io'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 export  const Login = () => {
     const [password,setPassword]=useState(false)
     const togglePassword=()=>{
@@ -22,6 +23,21 @@ export  const Login = () => {
     }
     console.log(LoginData)
 
+    const handleLogin=async(e)=>{
+        e.preventDefault();
+
+       axios.post("http://localhost:8000/api/auth/user/login",LoginData).then(
+        response=>{
+            console.log(response)
+        }
+       )
+       .catch(
+        error=>{
+            console.log(error)
+        }
+       )
+
+    }
   return (
     <>
     <div className='flex items-center justify-center max-w-7xl mx-auto'>
