@@ -56,7 +56,7 @@ export  const Login = () => {
 
             </div>
             
-<button type='button'           className='bg-[#5120a7] text-white p-3 rounded-lg w-full hover:bg-[#3e1785] transition-colors duration-150'>Login</button>
+<button type='button'           className='bg-[#5120a7] text-white p-3 rounded-lg w-full hover:bg-[#3e1785] transition-colors duration-150' onClick={handleLogin}>Login</button>
 <div className='my-2'>
             <p className='text-l font-medium'>Dont have an account <Link to={'/signup'} className='text-[#3e1785]'>Signup</Link></p>
         </div>
