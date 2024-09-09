@@ -44,16 +44,40 @@ const CategoryCarousel = () => {
   ];
 
   const settings = {
-    // dots: true,               // Show dots
-    infinite: true,            // Enable infinite scrolling
-    speed: 500,                // Transition speed (in ms)
-    slidesToShow: 4,           // Number of slides to show at once
-    slidesToScroll: 1,         // Number of slides to scroll at once
-    autoplay: true,            // Enable automatic slide change
-    autoplaySpeed: 2000,       // Time between automatic slide changes (in ms)
-    pauseOnHover: false,       // Don't pause on hover
-    arrows: true,              // Enable arrows
-     };
+    infinite: true,               // Enable infinite scrolling
+    speed: 500,                   // Transition speed (in ms)
+    slidesToShow: 4,              // Number of slides to show at once on large screens
+    slidesToScroll: 1,            // Number of slides to scroll at once
+    autoplay: true,               // Enable automatic slide change
+    autoplaySpeed: 2000,          // Time between automatic slide changes (in ms)
+    pauseOnHover: false,          // Don't pause on hover
+    arrows: true,                 // Enable arrows
+    nextArrow: <NextArrow />,     // Custom next arrow
+    prevArrow: <PrevArrow />,     // Custom prev arrow
+    responsive: [
+      {
+        breakpoint: 1024,         // For screens smaller than 1024px
+        settings: {
+          slidesToShow: 3,        // Show 3 slides at a time
+          slidesToScroll: 1,      // Scroll 1 slide at a time
+        }
+      },
+      {
+        breakpoint: 768,          // For screens smaller than 768px (tablet)
+        settings: {
+          slidesToShow: 2,        // Show 2 slides at a time
+          slidesToScroll: 1,      // Scroll 1 slide at a time
+        }
+      },
+      {
+        breakpoint: 480,          // For screens smaller than 480px (mobile)
+        settings: {
+          slidesToShow: 1,        // Show 1 slide at a time
+          slidesToScroll: 1,      // Scroll 1 slide at a time
+        }
+      }
+    ]
+  };
 
   return (
     <div style={{ width: '80%', margin: '0 auto', position: 'relative' }}>
