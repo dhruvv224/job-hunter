@@ -24,7 +24,7 @@ const Herosection = () => {
   return (
     <div className='text-center'>
         <h2 className='font-semibold px-4 py-2 rounded-full  bg-gray-100 text-[#f83002]'>No 1 ! job site</h2>
-        <h1 className='text-5xl py-2 font-bold'>Search,Apply & <br/> <span className=''>Get your dream <span className='text-[#3e1775]'>Job</span></span></h1>
+        <h1 className='md:text-5xl text-4xl py-2 font-bold'>Search,Apply & <br/> <span className=''>Get your dream <span className='text-[#3e1775]'>Job</span></span></h1>
         <p className='text-gray-600'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias optio quia, sunt architecto natus dolor, veritatis cupiditate quasi ipsam blanditiis facilis s</p>
         <div className="flex w-[40%] shadow-lg border border-gray-200 rounded-full items-center mx-auto m-4">
   <input 
@@ -34,8 +34,8 @@ const Herosection = () => {
     value={searchQuery}
     onChange={handleSearchquery}
   />
-  <button className="bg-[#6A38C2] p-4 rounded-r-full h-full flex items-center justify-center m-1" onClick={handleSearch}>
-    <GoSearch className="h-5 w-5 text-white" />
+  <button className="bg-[#6A38C2] md:p-4 p-2 rounded-r-full h-full flex items-center justify-center m-1" onClick={handleSearch}>
+    <GoSearch className="h-5 md:w-5 w-2 text-white" />
   </button>
 </div>
 
