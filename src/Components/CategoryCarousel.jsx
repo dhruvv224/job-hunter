@@ -44,7 +44,7 @@ const CategoryCarousel = () => {
   ];
 
   const settings = {
-    dots: true,               // Show dots
+    // dots: true,               // Show dots
     infinite: true,            // Enable infinite scrolling
     speed: 500,                // Transition speed (in ms)
     slidesToShow: 4,           // Number of slides to show at once
@@ -53,9 +53,7 @@ const CategoryCarousel = () => {
     autoplaySpeed: 2000,       // Time between automatic slide changes (in ms)
     pauseOnHover: false,       // Don't pause on hover
     arrows: true,              // Enable arrows
-    nextArrow: <NextArrow />,  // Custom next arrow
-    prevArrow: <PrevArrow />,  // Custom prev arrow
-  };
+     };
 
   return (
     <div style={{ width: '80%', margin: '0 auto', position: 'relative' }}>

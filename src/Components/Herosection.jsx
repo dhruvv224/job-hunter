@@ -1,14 +1,26 @@
 import React, { useState } from 'react'
 import { GoSearch } from "react-icons/go";
-
+import { Navigate, useNavigate } from "react-router-dom";
 const Herosection = () => {
     const [searchQuery,setSearchQuery]=useState('')
+    const navigate=useNavigate()
     const handleSearchquery=(event)=>{
         const value=event.target.value
         setSearchQuery(value)
 
+
     }
 
+    const handleSearch=(e)=>{
+      e.preventDefault()
+      // console.log(searchQuery)
+      if(searchQuery)
+      {
+        navigate(`/jobs?q=${encodeURIComponent(searchQuery)}`)
+      }
+
+
+    }
   return (
     <div className='text-center'>
         <h2 className='font-semibold px-4 py-2 rounded-full  bg-gray-100 text-[#f83002]'>No 1 ! job site</h2>
@@ -22,7 +34,7 @@ const Herosection = () => {
     value={searchQuery}
     onChange={handleSearchquery}
   />
-  <button className="bg-[#6A38C2] p-4 rounded-r-full h-full flex items-center justify-center m-1">
+  <button className="bg-[#6A38C2] p-4 rounded-r-full h-full flex items-center justify-center m-1" onClick={handleSearch}>
     <GoSearch className="h-5 w-5 text-white" />
   </button>
 </div>
