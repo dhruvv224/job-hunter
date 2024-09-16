@@ -2,9 +2,9 @@ import React from 'react'
 
 const LatestJobscard = () => {
   return (
-    <div className=''>
+    <div className='p-5 rounded-xl shadow-xl bg-white border border-gray-100 cursor-pointer'>
       <div>
-        <h1>
+        <h1 className='font-semibold text-[22px]'>
           Company Name
         </h1>
         <p>India</p>
