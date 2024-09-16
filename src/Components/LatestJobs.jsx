@@ -1,4 +1,5 @@
 import React from 'react'
+import LatestJobscard from './LatestJobscard'
 
 const LatestJobs = () => {
   return (
@@ -8,6 +9,7 @@ const LatestJobs = () => {
                 <span className='text-[#5624ac]'> Latest & Top   </span>
                 Job Openings
             </h1>
+            <LatestJobscard/>
         </div>
     </div>
   )
