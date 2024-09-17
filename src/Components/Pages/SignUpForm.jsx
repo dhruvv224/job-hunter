@@ -10,6 +10,7 @@ const SignUpForm = () => {
   const togglePassword2=()=>{
     setConfirmpass(!confirmPass)
   }
+
   const [signupData,setSignupdata]=useState({
     fullname:'',
     email:'',
@@ -75,15 +76,15 @@ const handlesubmit=(e)=>{
           />
         </div>
         
-        <div className='my-4'>
+         <div className='my-4'>
           <label className='block mb-2 font-medium'>Phone Number</label>
           <input 
           name='phonenumber'
           value={signupData.phonenumber}
           onChange={handleFieldChange}
-            type='tel' 
-            className='border border-gray-300 rounded-md w-full p-2 focus:outline-none focus:border-red-400 duration-150 text-gray-700' 
-            placeholder='Enter phone number'
+          type='tel' 
+          className='border border-gray-300 rounded-md w-full p-2 focus:outline-none focus:border-red-400 duration-150 text-gray-700' 
+          placeholder='Enter phone number'
           />
         </div>
         
