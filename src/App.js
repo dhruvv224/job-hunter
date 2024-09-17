@@ -4,7 +4,7 @@ import { Route,Routes } from 'react-router-dom';
 import SignUpForm from './Components/Pages/SignUpForm';
 import { Login } from './Components/Pages/Login';
 import Home from './Components/Pages/Home';
-import Jobs from './Components/Pages/Jobs';
+import Jobs from './Components/Jobs';
 
 function App() {
   return (

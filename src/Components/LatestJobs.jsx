@@ -1,5 +1,6 @@
 import React from 'react'
 import LatestJobscard from './LatestJobscard'
+import Jobs from './Jobs'
 
 const LatestJobs = () => {
   const randomJobs=[1,2,3,4,5,6,7,8]
@@ -15,6 +16,7 @@ const LatestJobs = () => {
 {
   randomJobs.map((item,index)=>(
     <LatestJobscard/>
+    // <Jobs/>
 
   ))
 }
