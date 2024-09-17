@@ -18,8 +18,6 @@ const SignUpForm = () => {
     password:'',
     re_password:'',
     role:''
-
-
   })
   const [emailError,setEmailError]=useState('');
   const email=signupData.email
