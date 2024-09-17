@@ -123,8 +123,8 @@ const handlesubmit=(e)=>{
           }
           </button>
 
-        </div>
-        
+
+        </div>  
         <div className='my-4'>
           <label className='block font-medium mb-2'>Role</label>
           <div className='flex items-center'>
@@ -134,15 +134,13 @@ const handlesubmit=(e)=>{
             <input type='radio' id='recruiter' name='role' className='mr-2' onChange={handleFieldChange} value='Recruiter'/>
             <label htmlFor='recruiter'>Recruiter</label>
           </div>
-        </div>
-        
+        </div>  
         <button 
           type='button' 
           className='bg-[#5120a7] text-white p-3 rounded-lg w-full hover:bg-[#3e1785] transition-colors duration-150'
           onClick={handlesubmit}
         >
           Sign Up
-
         </button>
         <div className='my-2'>
             <p className='text-l font-medium'>Already have an account <Link to={'/login'} className='text-[#3e1785]'>Login</Link></p>
