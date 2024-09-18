@@ -34,7 +34,11 @@ const FilterCard = () => {
 
   ]
   return (
-    <div>FilterCard</div>
+    <div>FilterCard
+      {
+        filterData
+      }
+    </div>
   )
 }
 
